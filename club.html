@@ -58,6 +58,7 @@
     const studentCount = "0";
     document.getElementById("student-count").textContent = studentCount;
 
+    //TODO create error messages if nothing is entered or if gpa is not 0-4
     let studentName = document.querySelector("#student-name").value;
 
     let studentId = document.querySelector("#student-id").value;
@@ -66,11 +67,24 @@
 
     let listItem = document.createElement('li');
     listItem.innerHTML = `Name: ${studentName}, id: ${studentId}, GPA: ${studentGpa}`;
+
+    //TODO add if else statement inside function to check class?
     listItem.addEventListener('click', function () {
-        //filler 
+        listItem.classList.add('selected');
+    });
+
+    listItem.addEventListener('click', function () {
+        listItem.classList.remove('selected');
     });
 
 
+    let studentList = document.querySelector("#student-list");
+    document.getElementById("student-list").appendChild(listItem);
+
+    let removeButton = document.querySelector("#remove-selected-students");
+    removeButton.addEventListener('click', function () {
+        removeButton.classList.remove('selected');
+    });
 </script>
 
 </body>
